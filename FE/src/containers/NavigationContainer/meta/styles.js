@@ -57,4 +57,7 @@ export const styles = makeStyles(theme => ({
         }),
         marginLeft: 0,
     },
+    title: {
+        flexGrow: 1,
+    }
 }))

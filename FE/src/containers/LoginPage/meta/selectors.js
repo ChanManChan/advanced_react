@@ -34,6 +34,7 @@ const makeSelectLoginPageUsername = () =>
   );
 
 export default makeSelectLoginPage;
+
 export {
   selectLoginPageDomain,
   makeSelectLoginPagePassword,
