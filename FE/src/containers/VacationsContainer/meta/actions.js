@@ -1,16 +1,19 @@
-import * as constants from "./constants";
-
+import * as constants from './constants';
 
 export const getVacations = () => ({
-    type: constants.GET_VACATIONS,
+  type: constants.GET_VACATIONS,
 });
 
-export const getVacationsSuccess = payload => ({
-    type: constants.GET_VACATIONS_SUCCESS,
-    payload,
+export const getVacationsSuccess = (payload) => ({
+  type: constants.GET_VACATIONS_SUCCESS,
+  payload,
 });
 
-export const getVacationsError = payload => ({
-    type: constants.GET_VACATIONS_ERROR,
-    payload,
+export const getVacationsError = (payload) => ({
+  type: constants.GET_VACATIONS_ERROR,
+  payload,
+});
+
+export const updateShowDiscounts = () => ({
+  type: constants.UPDATE_SHOW_DISCOUNTS,
 });

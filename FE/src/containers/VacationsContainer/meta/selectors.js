@@ -4,5 +4,5 @@ import { initialState } from './reducer';
  * @param state
  * @returns {Object}
  */
-export const select = state => state.vacations || initialState;
-export const selectVacations = state => select(state).vacations;
+export const select = (state) => state.vacations || initialState;
+export const selectVacations = (state) => select(state).vacations;

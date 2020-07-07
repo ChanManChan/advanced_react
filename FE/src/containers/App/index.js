@@ -10,18 +10,19 @@
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import LoginPage from "../LoginPage";
+import LoginPage from '../LoginPage';
+import NavigationContainer from 'containers/NavigationContainer';
 // import HomePage from "../../hooks/HomePage";
-import { getAuth } from 'containers/AuthContainer/meta/selectors'
-import PropTypes from 'prop-types'
-import NavigationContainer from 'containers/NavigationContainer'
+import { getAuth } from 'containers/AuthContainer/meta/selectors';
+import { selectTheme } from './meta/selectors';
+import PropTypes from 'prop-types';
+import { ThemeProvider } from '@material-ui/core';
 
-function App({ auth }) {
+function App({ auth, theme }) {
   return (
-  <>
-    {!auth.isAuthenticated && <LoginPage />}
-    {auth.isAuthenticated && <NavigationContainer />}
-  </>
+    <ThemeProvider theme={theme}>
+      {!auth.isAuthenticated ? <LoginPage /> : <NavigationContainer />}
+    </ThemeProvider>
   );
 }
 
@@ -29,13 +30,11 @@ App.propTypes = {
   auth: PropTypes.object,
 };
 
-
 const mapStateToProps = (state) => ({
   auth: getAuth(state),
-})
- 
+  theme: selectTheme(state),
+});
+
 const withConnect = connect(mapStateToProps);
 
-export default compose(
-  withConnect,
-)(App);
+export default compose(withConnect)(App);

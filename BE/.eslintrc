@@ -1,8 +1,6 @@
 {
   "parser": "babel-eslint",
-  "plugins": [
-    "prettier"
-  ],
+  "plugins": ["prettier"],
   "env": {
     "jest": true,
     "browser": true,
@@ -18,9 +16,12 @@
   },
   "rules": {
     "semi": [2, "always"],
-    "prettier/prettier": ["error", {
-      "trailingComma": "none"
-    }],
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "none"
+      }
+    ],
     "arrow-body-style": [2, "as-needed"],
     "class-methods-use-this": 0,
     "indent": [
@@ -37,7 +38,5 @@
     "no-unused-vars": 2,
     "no-use-before-define": 0
   },
-  "extends": [
-    "standard"
-  ]
+  "extends": ["standard"]
 }

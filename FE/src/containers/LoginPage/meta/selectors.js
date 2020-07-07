@@ -5,7 +5,7 @@ import { initialState } from './reducer';
  * Direct selector to the loginPage state domain
  */
 
-const selectLoginPageDomain = state => state.loginPage || initialState;
+const selectLoginPageDomain = (state) => state.loginPage || initialState;
 
 /**
  * Other specific selectors
@@ -16,22 +16,13 @@ const selectLoginPageDomain = state => state.loginPage || initialState;
  */
 
 const makeSelectLoginPage = () =>
-  createSelector(
-    selectLoginPageDomain,
-    substate => substate,
-  );
+  createSelector(selectLoginPageDomain, (substate) => substate);
 
 const makeSelectLoginPagePassword = () =>
-  createSelector(
-    selectLoginPageDomain,
-    substate => substate.password,
-  );
+  createSelector(selectLoginPageDomain, (substate) => substate.password);
 
 const makeSelectLoginPageUsername = () =>
-  createSelector(
-    selectLoginPageDomain,
-    substate => substate.username,
-  );
+  createSelector(selectLoginPageDomain, (substate) => substate.username);
 
 export default makeSelectLoginPage;
 

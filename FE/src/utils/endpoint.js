@@ -5,7 +5,7 @@ export const URLS = {
   GET_PROFILE: { url: 'profile' },
 };
 
-export const getEndpointURL = key => {
+export const getEndpointURL = (key) => {
   let finalUrl = '';
   if (key && URLS[key]) {
     const urlKey = URLS[key];

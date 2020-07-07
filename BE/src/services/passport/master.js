@@ -12,5 +12,5 @@ passport.use(
     } else {
       done(null, false);
     }
-  })
+  }),
 );
