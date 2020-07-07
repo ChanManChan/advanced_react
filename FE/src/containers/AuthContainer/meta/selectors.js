@@ -4,6 +4,8 @@ import { initialState } from './reducer';
  * @param state
  * @returns {Object}
  */
-export const getAuth = state => state.auth || initialState;
+export const getAuth = (state) => state.auth || initialState;
 
-export const getUser = state => getAuth(state).user
+export const getUser = (state) => getAuth(state).user;
+
+export const selectIsAuthenticated = (state) => getAuth(state).isAuthenticated;

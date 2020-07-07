@@ -13,20 +13,34 @@ const useStyles = makeStyles({
   },
 });
 
-function Vacations({ getVacations, updateShowDiscounts, vacations }) {
+function Vacations({
+  boolDiscounts,
+  getVacations,
+  updateShowDiscounts,
+  vacations,
+  discounts,
+}) {
   useEffect(() => {
     if (getVacations) {
       getVacations();
     }
   }, []);
-
   const classes = useStyles();
+
+  //! Avoid Reconciliation
+  // Every time we render the "Vacations" component, we're creating a new object of the "vacations". The map JS function returns a new array, and when this new array is passed to the "VacationsItems", the memo will check the previous prop and the new prop and its not the same reference!, we have two different objects over here but with the same content inside. <- Just giving reasons to react to re-render the component because the props has "changed".
+
+  // const newVacations = vacations.map((vacation) => ({
+  //   ...vacation,
+  //   price: 100,
+  // }));
 
   return (
     <>
       <Discounts
         updateShowDiscounts={updateShowDiscounts}
-        vacations={vacations}
+        displayDiscounts={boolDiscounts}
+        discounts={discounts}
       />
       <div className={classes.vacationsRoot}>
         <VacationsItems vacations={vacations} />
@@ -36,8 +50,11 @@ function Vacations({ getVacations, updateShowDiscounts, vacations }) {
 }
 
 Vacations.propTypes = {
+  boolDiscounts: PropTypes.bool,
   getVacations: PropTypes.func,
+  updateShowDiscounts: PropTypes.func,
   vacations: PropTypes.array,
+  discounts: PropTypes.array,
 };
 
 export default Vacations;

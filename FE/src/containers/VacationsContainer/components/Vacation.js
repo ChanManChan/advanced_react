@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -37,15 +38,20 @@ export function Vacation({ vacation }) {
           <Typography variant='body2' color='textSecondary' component='p'>
             {vacation.description}
           </Typography>
+          <Typography variant='body2' color='textSecondary' component='p'>
+            Price: {vacation.price}
+          </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button variant='contained' size='small' color='primary'>
           Order
         </Button>
-        <Button size='small' color='secondary'>
-          Learn More
-        </Button>
+        <Link to={`/vacation/${vacation.id}`}>
+          <Button size='small' color='secondary'>
+            Learn More
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );

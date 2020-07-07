@@ -17,12 +17,15 @@ import { getAuth } from 'containers/AuthContainer/meta/selectors';
 import { selectTheme } from './meta/selectors';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from '@material-ui/core';
+import { BrowserRouter } from 'react-router-dom';
 
 function App({ auth, theme }) {
   return (
-    <ThemeProvider theme={theme}>
-      {!auth.isAuthenticated ? <LoginPage /> : <NavigationContainer />}
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        {!auth.isAuthenticated ? <LoginPage /> : <NavigationContainer />}
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 

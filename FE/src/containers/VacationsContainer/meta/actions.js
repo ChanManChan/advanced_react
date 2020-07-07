@@ -17,3 +17,7 @@ export const getVacationsError = (payload) => ({
 export const updateShowDiscounts = () => ({
   type: constants.UPDATE_SHOW_DISCOUNTS,
 });
+
+export const updateShowDiscountsSuccess = () => ({
+  type: constants.UPDATE_SHOW_DISCOUNTS_SUCCESS,
+});

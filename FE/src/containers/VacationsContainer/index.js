@@ -1,15 +1,22 @@
 import { connect } from 'react-redux';
 import Vacations from './components/Vacations';
-import { getVacations } from './meta/actions';
-import { selectVacations } from './meta/selectors';
+import { getVacations, updateShowDiscounts } from './meta/actions';
+import {
+  makeSelectVacations,
+  showDiscounts,
+  selectDiscounts,
+} from './meta/selectors';
 
 const mapStateToProps = (state) => ({
-  vacations: selectVacations(state),
+  boolDiscounts: showDiscounts(state),
+  vacations: makeSelectVacations(state),
+  discounts: selectDiscounts(state),
 });
 
-const mapDispatchToProps = {
-  getVacations,
-};
+const mapDispatchToProps = (dispatch) => ({
+  getVacations: () => dispatch(getVacations()),
+  updateShowDiscounts: () => dispatch(updateShowDiscounts()),
+});
 
 const VacationsContainer = connect(
   mapStateToProps,

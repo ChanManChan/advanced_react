@@ -14,6 +14,20 @@ function* handleGetVacations() {
   }
 }
 
+function* handleUpdateShowDiscounts() {
+  try {
+    yield put(actions.updateShowDiscountsSuccess());
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export default function* () {
-  yield all([yield takeLatest(constants.GET_VACATIONS, handleGetVacations)]);
+  yield all([
+    yield takeLatest(constants.GET_VACATIONS, handleGetVacations),
+    yield takeLatest(
+      constants.UPDATE_SHOW_DISCOUNTS,
+      handleUpdateShowDiscounts
+    ),
+  ]);
 }

@@ -15,7 +15,7 @@ const Vacations = (state = initialState, action) =>
         draft.vacations = action.payload.vacations;
         draft.discounts = action.payload.discounts;
         break;
-      case constants.UPDATE_SHOW_DISCOUNTS:
+      case constants.UPDATE_SHOW_DISCOUNTS_SUCCESS:
         draft.showDiscounts = !state.showDiscounts;
         break;
       case constants.GET_VACATIONS_ERROR:
