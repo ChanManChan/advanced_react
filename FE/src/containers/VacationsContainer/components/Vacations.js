@@ -19,6 +19,8 @@ function Vacations({
   updateShowDiscounts,
   vacations,
   discounts,
+  selectedVacation,
+  updateSelectedVacation,
 }) {
   useEffect(() => {
     if (getVacations) {
@@ -35,6 +37,16 @@ function Vacations({
   //   price: 100,
   // }));
 
+  //! This line (42) will create a new function every time this Vacations component re-render (Therefore the reference will be new everytime this function renders)
+  // Very bad practise to define callback inside the functional component
+  // const handleVacationOnClick = (vacationId) =>
+  //   updateSelectedVacation(vacationId);
+
+  //? SOLUTION
+  // 1> Define this callback inside every vacation
+
+  console.count('VACATIONS');
+
   return (
     <>
       <Discounts
@@ -43,7 +55,10 @@ function Vacations({
         discounts={discounts}
       />
       <div className={classes.vacationsRoot}>
-        <VacationsItems vacations={vacations} />
+        <VacationsItems
+          vacations={vacations}
+          updateSelectedVacation={updateSelectedVacation}
+        />
       </div>
     </>
   );
@@ -55,6 +70,8 @@ Vacations.propTypes = {
   updateShowDiscounts: PropTypes.func,
   vacations: PropTypes.array,
   discounts: PropTypes.array,
+  selectedVacation: PropTypes.string,
+  updateSelectedVacation: PropTypes.func,
 };
 
 export default Vacations;

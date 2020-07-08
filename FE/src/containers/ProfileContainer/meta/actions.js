@@ -1,16 +1,23 @@
-import * as constants from "./constants";
-
+import * as constants from './constants';
 
 export const getProfile = () => ({
-    type: constants.GET_PROFILE,
+  type: constants.GET_PROFILE,
 });
 
-export const getProfileSuccess = payload => ({
-    type: constants.GET_PROFILE_SUCCESS,
-    payload,
+export const getProfileSuccess = (payload) => ({
+  type: constants.GET_PROFILE_SUCCESS,
+  payload,
 });
 
-export const getProfileError = payload => ({
-    type: constants.GET_PROFILE_ERROR,
-    payload,
+export const getProfileError = (payload) => ({
+  type: constants.GET_PROFILE_ERROR,
+  payload,
+});
+
+export const updateUserStatus = () => ({
+  type: constants.UPDATE_USER_STATUS,
+});
+
+export const updateUserStatusSuccess = () => ({
+  type: constants.UPDATE_USER_STATUS_SUCCESS,
 });

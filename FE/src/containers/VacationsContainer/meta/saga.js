@@ -22,12 +22,24 @@ function* handleUpdateShowDiscounts() {
   }
 }
 
+function* handleSelectedVacation(action) {
+  try {
+    yield put(actions.getSelectedVacation(action.vacationId));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export default function* () {
   yield all([
     yield takeLatest(constants.GET_VACATIONS, handleGetVacations),
     yield takeLatest(
       constants.UPDATE_SHOW_DISCOUNTS,
       handleUpdateShowDiscounts
+    ),
+    yield takeLatest(
+      constants.UPDATE_SELECTED_VACATION,
+      handleSelectedVacation
     ),
   ]);
 }

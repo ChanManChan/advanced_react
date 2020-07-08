@@ -19,11 +19,15 @@ const useStyles = makeStyles({
   },
 });
 
-export function Vacation({ vacation }) {
+export function Vacation({ vacation, updateSelectedVacation }) {
   const classes = useStyles();
 
+  console.count('VACATION_CARD');
+
+  const handleVacationOnClick = () => updateSelectedVacation(vacation.id);
+
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} onClick={handleVacationOnClick}>
       <CardActionArea>
         <CardMedia
           component='img'
@@ -59,6 +63,7 @@ export function Vacation({ vacation }) {
 
 Vacation.propTypes = {
   vacation: PropTypes.object,
+  updateSelectedVacation: PropTypes.func,
 };
 
 export default Vacation;

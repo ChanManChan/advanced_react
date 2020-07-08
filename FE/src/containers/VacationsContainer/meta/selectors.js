@@ -27,3 +27,5 @@ export const makeSelectVacations = createSelector(
 export const showDiscounts = (state) => select(state).showDiscounts;
 
 export const selectDiscounts = (state) => select(state).discounts;
+
+export const selectSelectedVacation = (state) => select(state).selectedVacation;

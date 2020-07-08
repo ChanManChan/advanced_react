@@ -22,15 +22,22 @@ import { styles } from '../meta/styles';
 import NavItem from './NavItem';
 import Button from '@material-ui/core/Button';
 import Switch from '@material-ui/core/Switch';
-
 import PropTypes from 'prop-types';
 import { Switch as RouterSwitch, Link } from 'react-router-dom';
-import VacationsContainer from 'containers/VacationsContainer';
-import LoginPage from 'containers/LoginPage';
-import ProfileContainer from 'containers/ProfileContainer';
-import VacationDetails from 'containers/VacationDetailsContainer';
+//! Routes
 import PrivateRoute from 'components/Routes/PrivateRoute';
 import PublicRoute from 'components/Routes/PublicRoute';
+//! Modules
+import VacationsContainer from 'containers/VacationsContainer/dynamic';
+import VacationDetailsContainer from 'containers/VacationDetailsContainer/dynamic';
+import LoginPage from 'containers/LoginPage/dynamic';
+import ProfileContainer from 'containers/ProfileContainer/dynamic';
+
+//! Modules (To load them dynamically, remove these modules from here) <- So now when this components loads, we'll not import these modules
+// import VacationsContainer from 'containers/VacationsContainer';
+// import LoginPage from 'containers/LoginPage';
+// import ProfileContainer from 'containers/ProfileContainer';
+// import VacationDetails from 'containers/VacationDetailsContainer';
 
 const useStyles = styles;
 
@@ -162,6 +169,10 @@ function Navigation({
         })}
       >
         <div className={classes.drawerHeader} />
+        {/* Lazy loading */}
+        {/* Dynamically Load Modules */}
+        {/* Should be default export */}
+        {/* Telling webpack to split all these modules into separate bundle files */}
         <RouterSwitch>
           <PrivateRoute
             exact
@@ -184,7 +195,7 @@ function Navigation({
           <PrivateRoute
             exact
             path='/vacation/:id'
-            Component={VacationDetails}
+            Component={VacationDetailsContainer}
             isAuthenticated={isAuthenticated}
           />
         </RouterSwitch>

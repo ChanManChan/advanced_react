@@ -21,3 +21,13 @@ export const updateShowDiscounts = () => ({
 export const updateShowDiscountsSuccess = () => ({
   type: constants.UPDATE_SHOW_DISCOUNTS_SUCCESS,
 });
+
+export const updateSelectedVacation = (vacationId) => ({
+  type: constants.UPDATE_SELECTED_VACATION,
+  vacationId,
+});
+
+export const getSelectedVacation = (vacationId) => ({
+  type: constants.SELECTED_VACATION,
+  vacationId,
+});
